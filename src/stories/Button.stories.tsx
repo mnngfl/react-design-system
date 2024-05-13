@@ -53,3 +53,20 @@ export const ButtonSize: Story = {
     ),
   ],
 };
+
+export const IconButton: Story = {
+  parameters: {
+    controls: { exclude: ["loading", "icon", "label", "onClick"] },
+  },
+  decorators: [
+    (Story, context) => (
+      <div className="flex space-x-4">
+        <Story args={{ ...context.args, label: "Login with Email", icon: "mail" }} />
+        <Story args={{ ...context.args, variant: "outlined", label: "Send", icon: "send" }} />
+        <Story args={{ ...context.args, label: "Loading", loading: true, disabled: true }} />
+        <Story args={{ ...context.args, icon: "plus", onlyIcon: true, pill: true }} />
+        <Story args={{ ...context.args, icon: "plus", variant: "subtle", onlyIcon: true }} />
+      </div>
+    ),
+  ],
+};
