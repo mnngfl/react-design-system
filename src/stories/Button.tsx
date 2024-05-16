@@ -40,11 +40,12 @@ export const Button = ({
 }: ButtonProps) => {
   const buttonClasses = twMerge(
     clsx("rounded-md justify-center items-center flex cursor-pointer", {
-      "bg-slate-900 hover:bg-slate-700": variant === "primary",
-      "bg-red-500 hover:bg-red-600": variant === "danger",
-      "border border-slate-200 bg-white hover:bg-slate-100": variant === "outlined",
-      "bg-slate-100 hover:bg-slate-200": variant === "subtle",
-      "bg-white/opacity-0 hover:bg-slate-100": variant === "ghost",
+      "bg-slate-900 hover:bg-slate-700 active:bg-slate-600": variant === "primary",
+      "bg-red-500 hover:bg-red-600 active:bg-red-700": variant === "danger",
+      "border border-slate-200 bg-white hover:bg-slate-50 active:bg-slate-100":
+        variant === "outlined",
+      "bg-slate-100 hover:bg-slate-200 active:bg-slate-300": variant === "subtle",
+      "bg-white/opacity-0 hover:bg-slate-100 active:bg-slate-200": variant === "ghost",
       "bg-white/opacity-0 hover:underline": variant === "link",
 
       "min-w-16 h-8 p-2 gap-1": size === "sm",
@@ -55,10 +56,11 @@ export const Button = ({
 
       "rounded-full": pill,
 
-      "opacity-50 hover:bg- cursor-default": disabled,
+      "cursor-wait": loading,
+      "opacity-50 hover:bg- active:bg- cursor-not-allowed": disabled,
     }),
   );
-  const buttonTextClasses = clsx(`font-medium font-['Inter']`, {
+  const buttonTextClasses = clsx(`font-medium font-['Inter'] pointer-events-none`, {
     "text-white": variant === "primary" || variant === "danger",
     "text-slate-900": variant === "outlined" || variant === "subtle" || variant === "ghost",
 
