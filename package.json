@@ -13,7 +13,7 @@
     "chromatic": "dotenv -- cross-env npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
-    "clsx": "^2.1.1",
+    "class-variance-authority": "^0.7.0",
     "dotenv-cli": "^7.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
