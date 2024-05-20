@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cx } from "class-variance-authority";
 import * as icons from "./assets/icons";
 import { twMerge } from "tailwind-merge";
 
@@ -19,7 +19,7 @@ interface IconProps {
 
 export const Icon = ({ name, variant = "outlined", size = "md", className }: IconProps) => {
   const iconClasses = twMerge(
-    clsx("fill-none", {
+    cx("fill-none", {
       "stroke-white": variant === "outlined",
       "stroke-slate-900": variant === "primary",
 
