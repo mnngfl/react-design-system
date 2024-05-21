@@ -1,11 +1,63 @@
-import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Icon, type IconType } from "./Icon";
+import { cva, type VariantProps } from "class-variance-authority";
+
+const buttonStyles = cva("rounded-md justify-center items-center flex cursor-pointer", {
+  variants: {
+    variant: {
+      primary: "bg-slate-900 hover:bg-slate-700 active:bg-slate-600",
+      danger: "bg-red-500 hover:bg-red-600 active:bg-red-700",
+      outlined: "border border-slate-200 bg-white hover:bg-slate-50 active:bg-slate-100",
+      subtle: "bg-slate-100 hover:bg-slate-200 active:bg-slate-300",
+      ghost: "bg-white/opacity-0 hover:bg-slate-100 active:bg-slate-200",
+      link: "bg-white/opacity-0 hover:underline",
+    },
+    size: {
+      sm: "min-w-16 h-8 p-2 gap-1",
+      md: "min-w-24 h-10 p-2.5 gap-2",
+      lg: "min-w-32 h-12 p-3 gap-2.5",
+    },
+    onlyIcon: {
+      true: "min-w-8",
+    },
+    pill: {
+      true: "rounded-full",
+    },
+    loading: {
+      true: "cursor-wait",
+    },
+    disabled: {
+      true: "opacity-50 hover:bg- active:bg- cursor-not-allowed",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+    size: "md",
+  },
+});
+
+const buttonTextStyles = cva(`font-medium font-['Inter'] pointer-events-none`, {
+  variants: {
+    variant: {
+      primary: "text-white",
+      danger: "text-white",
+      outlined: "text-slate-900",
+      subtle: "text-slate-900",
+      ghost: "text-slate-900",
+      link: "text-slate-900",
+    },
+    size: {
+      sm: "text-xs",
+      md: "text-sm",
+      lg: "text-lg",
+    },
+  },
+});
 
 type ButtonVariant = "primary" | "danger" | "outlined" | "subtle" | "ghost" | "link";
 type ButtonSize = "sm" | "md" | "lg";
 
-interface ButtonProps {
+interface ButtonProps extends VariantProps<typeof buttonStyles> {
   /** 버튼의 생김새 */
   variant?: ButtonVariant;
   /** 둥근 모양인지 여부 */
@@ -38,42 +90,14 @@ export const Button = ({
   onClick,
   ...props
 }: ButtonProps) => {
-  const buttonClasses = twMerge(
-    clsx("rounded-md justify-center items-center flex cursor-pointer", {
-      "bg-slate-900 hover:bg-slate-700 active:bg-slate-600": variant === "primary",
-      "bg-red-500 hover:bg-red-600 active:bg-red-700": variant === "danger",
-      "border border-slate-200 bg-white hover:bg-slate-50 active:bg-slate-100":
-        variant === "outlined",
-      "bg-slate-100 hover:bg-slate-200 active:bg-slate-300": variant === "subtle",
-      "bg-white/opacity-0 hover:bg-slate-100 active:bg-slate-200": variant === "ghost",
-      "bg-white/opacity-0 hover:underline": variant === "link",
-
-      "min-w-16 h-8 p-2 gap-1": size === "sm",
-      "min-w-24 h-10 p-2.5 gap-2": size === "md",
-      "min-w-32 h-12 p-3 gap-2.5": size === "lg",
-
-      "min-w-8": onlyIcon,
-
-      "rounded-full": pill,
-
-      "cursor-wait": loading,
-      "opacity-50 hover:bg- active:bg- cursor-not-allowed": disabled,
-    }),
-  );
-  const buttonTextClasses = clsx(`font-medium font-['Inter'] pointer-events-none`, {
-    "text-white": variant === "primary" || variant === "danger",
-    "text-slate-900": variant === "outlined" || variant === "subtle" || variant === "ghost",
-
-    "text-xs": size === "sm",
-    "text-sm": size === "md",
-    "text-lg": size === "lg",
-  });
-
   const iconVariant = variant === "primary" || variant === "danger" ? "outlined" : "primary";
   const iconName = icon || (loading ? "loader" : null);
 
   return (
-    <div className={buttonClasses} onClick={onClick}>
+    <div
+      className={twMerge(buttonStyles({ variant, size, onlyIcon, pill, loading, disabled }))}
+      onClick={!loading && !disabled ? onClick : undefined}
+    >
       {iconName && (
         <div className="relative">
           {
@@ -87,7 +111,11 @@ export const Button = ({
         </div>
       )}
       {!onlyIcon && (
-        <button className={buttonTextClasses} disabled={disabled} {...props}>
+        <button
+          className={twMerge(buttonTextStyles({ variant, size }))}
+          disabled={disabled}
+          {...props}
+        >
           {label}
         </button>
       )}
