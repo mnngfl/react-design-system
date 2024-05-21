@@ -10,6 +10,10 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: yarn
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Build Storybook
+        run: yarn build-storybook --quiet
       - name: Run Storybook tests
         run: |
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
