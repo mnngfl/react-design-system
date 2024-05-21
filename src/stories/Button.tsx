@@ -36,7 +36,7 @@ const buttonStyles = cva("rounded-md justify-center items-center flex cursor-poi
   },
 });
 
-const buttonTextStyles = cva(`font-medium font-['Inter'] pointer-events-none`, {
+const buttonTextStyles = cva(`font-medium font-['Inter']`, {
   variants: {
     variant: {
       primary: "text-white",
@@ -51,6 +51,16 @@ const buttonTextStyles = cva(`font-medium font-['Inter'] pointer-events-none`, {
       md: "text-sm",
       lg: "text-lg",
     },
+    loading: {
+      true: "cursor-wait",
+    },
+    disabled: {
+      true: "cursor-not-allowed",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+    size: "md",
   },
 });
 
@@ -112,7 +122,7 @@ export const Button = ({
       )}
       {!onlyIcon && (
         <button
-          className={twMerge(buttonTextStyles({ variant, size }))}
+          className={twMerge(buttonTextStyles({ variant, size, loading, disabled }))}
           disabled={disabled}
           {...props}
         >

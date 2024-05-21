@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
-import { fn } from "@storybook/test";
+import { expect, fn, userEvent, within } from "@storybook/test";
 
 const meta: Meta<typeof Button> = {
   title: "Primitives/Button",
   tags: ["autodocs"],
   component: Button,
   parameters: {
+    docs: { canvas: { sourceState: "none" } },
     layout: "centered",
   },
   args: { onClick: fn() },
@@ -18,6 +19,9 @@ type Story = StoryObj<typeof Button>;
 export const Example: Story = {
   args: {
     label: "Button",
+  },
+  parameters: {
+    docs: { canvas: { sourceState: "hidden" } },
   },
 };
 
@@ -70,4 +74,16 @@ export const IconButton: Story = {
       </div>
     ),
   ],
+};
+
+export const WithInteractions: Story = {
+  args: {
+    label: "Click",
+    onClick: fn(),
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole("button"));
+    expect(args.onClick).toHaveBeenCalled();
+  },
 };
