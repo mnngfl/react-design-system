@@ -5,20 +5,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: Install dependencies
-        run: npm ci
+        run: yarn
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Build Storybook
-        run: npm run build-storybook --silent
+        run: yarn build-storybook --quiet
       - name: Serve Storybook and run tests
         run: |
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006 --silent" \
-            "npx wait-on tcp:6006 && npm run test-storybook"
+            "npx wait-on tcp:6006 && yarn test-storybook"
   visual-tests:
     runs-on: ubuntu-latest
     steps:
@@ -27,7 +27,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install dependencies
-        run: npm ci
+        run: yarn
       - name: Run Chromatic
         uses: chromaui/action@latest
         with:
