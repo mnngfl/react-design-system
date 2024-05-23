@@ -6,7 +6,7 @@ const buttonStyles = cva("rounded-md justify-center items-center flex cursor-poi
   variants: {
     variant: {
       primary: "bg-slate-900 hover:bg-slate-700 active:bg-slate-600",
-      danger: "bg-red-500 hover:bg-red-600 active:bg-red-700",
+      danger: "bg-red-600 hover:bg-red-700 active:bg-red-800",
       outlined: "border border-slate-200 bg-white hover:bg-slate-50 active:bg-slate-100",
       subtle: "bg-slate-100 hover:bg-slate-200 active:bg-slate-300",
       ghost: "bg-white/opacity-0 hover:bg-slate-100 active:bg-slate-200",
