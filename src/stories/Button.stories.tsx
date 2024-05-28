@@ -7,7 +7,11 @@ const meta: Meta<typeof Button> = {
   tags: ["autodocs"],
   component: Button,
   parameters: {
-    docs: { canvas: { sourceState: "none" } },
+    docs: {
+      description: {
+        component: "레이블 혹은 아이콘으로 구성된 버튼을 표시합니다.",
+      },
+    },
     layout: "centered",
   },
   args: { onClick: fn() },
@@ -19,15 +23,38 @@ type Story = StoryObj<typeof Button>;
 export const Example: Story = {
   args: {
     label: "Button",
+    onClick: fn(),
   },
   parameters: {
-    docs: { canvas: { sourceState: "hidden" } },
+    docs: {
+      source: {
+        code: `<Button label="Button" />`,
+      },
+    },
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole("button"));
+    expect(args.onClick).toHaveBeenCalled();
   },
 };
 
 export const BasicButton: Story = {
   parameters: {
-    controls: { exclude: ["variant", "label", "onClick"] },
+    docs: {
+      description: {
+        story: "버튼의 생김새를 지정합니다.",
+      },
+      source: {
+        code: `<Button label="Default" />
+<Button variant="danger" label="Destructive" />
+<Button variant="outlined" label="Cancel" />
+<Button variant="subtle" label="Subtle" />
+<Button variant="ghost" label="Ghost" />
+<Button variant="link" label="Link" />
+`,
+      },
+    },
   },
   decorators: [
     (Story, context) => (
@@ -45,7 +72,17 @@ export const BasicButton: Story = {
 
 export const ButtonSize: Story = {
   parameters: {
-    controls: { exclude: ["size", "label", "onClick"] },
+    docs: {
+      description: {
+        story: "3가지 크기가 지원됩니다.",
+      },
+      source: {
+        code: `<Button size="sm" label="Small" />
+<Button label="Medium" />
+<Button size="lg" label="Large" />
+`,
+      },
+    },
   },
   decorators: [
     (Story, context) => (
@@ -60,7 +97,20 @@ export const ButtonSize: Story = {
 
 export const IconButton: Story = {
   parameters: {
-    controls: { exclude: ["loading", "icon", "label", "onClick"] },
+    docs: {
+      description: {
+        story: "버튼에 아이콘을 표시합니다.",
+      },
+      source: {
+        code: `<Button icon="mail" label="Login with Email" />
+<Button variant="outlined" icon="send" label="Send" />
+<Button variant="subtle" label="Loading" loading />
+<Button icon="delete" label="Delete" disabled />
+<Button icon="plus" onlyIcon pill />
+<Button variant="subtle" icon="plus" onlyIcon />
+`,
+      },
+    },
   },
   decorators: [
     (Story, context) => (
@@ -68,22 +118,10 @@ export const IconButton: Story = {
         <Story args={{ ...context.args, label: "Login with Email", icon: "mail" }} />
         <Story args={{ ...context.args, variant: "outlined", label: "Send", icon: "send" }} />
         <Story args={{ ...context.args, label: "Loading", loading: true, variant: "subtle" }} />
-        <Story args={{ ...context.args, label: "Disabled", disabled: true, icon: "delete" }} />
+        <Story args={{ ...context.args, label: "Delete", disabled: true, icon: "delete" }} />
         <Story args={{ ...context.args, icon: "plus", onlyIcon: true, pill: true }} />
         <Story args={{ ...context.args, icon: "plus", variant: "subtle", onlyIcon: true }} />
       </div>
     ),
   ],
-};
-
-export const WithInteractions: Story = {
-  args: {
-    label: "Click",
-    onClick: fn(),
-  },
-  play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement);
-    await userEvent.click(canvas.getByRole("button"));
-    expect(args.onClick).toHaveBeenCalled();
-  },
 };
