@@ -1,5 +1,5 @@
 import { cx } from "class-variance-authority";
-import * as icons from "./assets/icons";
+import * as icons from "@/shared/assets/icons";
 import { twMerge } from "tailwind-merge";
 
 export type IconType = keyof typeof icons;

@@ -125,3 +125,29 @@ export const IconButton: Story = {
     ),
   ],
 };
+
+export const OverrideClass: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: "클래스를 덮어 씁니다.",
+      },
+      source: {
+        code: `<Button label="Click me !" className="bg-violet-600 hover:bg-violet-700 active:bg-violet-800" />`,
+      },
+    },
+  },
+  decorators: [
+    (Story, context) => (
+      <div className="flex space-x-4">
+        <Story
+          args={{
+            ...context.args,
+            label: "Click me !",
+            className: "bg-violet-600 hover:bg-violet-700 active:bg-violet-800",
+          }}
+        />
+      </div>
+    ),
+  ],
+};

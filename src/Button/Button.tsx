@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { Icon, type IconType } from "./Icon";
+import { Icon, type IconType } from "@/Icon";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonStyles = cva("rounded-md justify-center items-center flex cursor-pointer", {
@@ -84,6 +84,8 @@ interface ButtonProps extends VariantProps<typeof buttonStyles> {
   onlyIcon?: boolean;
   /** 로딩 중 여부 */
   loading?: boolean;
+  /** 추가 클래스 */
+  className?: string;
   /** 클릭 시 호출할 함수 */
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 }
@@ -97,6 +99,7 @@ export const Button = ({
   icon,
   onlyIcon = false,
   loading = false,
+  className,
   onClick,
   ...props
 }: ButtonProps) => {
@@ -105,7 +108,10 @@ export const Button = ({
 
   return (
     <div
-      className={twMerge(buttonStyles({ variant, size, onlyIcon, pill, loading, disabled }))}
+      className={twMerge(
+        buttonStyles({ variant, size, onlyIcon, pill, loading, disabled }),
+        className,
+      )}
       onClick={!loading && !disabled ? onClick : undefined}
     >
       {iconName && (
