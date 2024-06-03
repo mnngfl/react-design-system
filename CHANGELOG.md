@@ -1,3 +1,15 @@
+# v0.1.3 (Mon Jun 03 2024)
+
+#### ⚠️ Pushed to `main`
+
+- update build options ([@mnngfl](https://github.com/mnngfl))
+
+#### Authors: 1
+
+- Hyomin Kang ([@mnngfl](https://github.com/mnngfl))
+
+---
+
 # v0.1.2 (Mon Jun 03 2024)
 
 #### 🐛 Bug Fix
