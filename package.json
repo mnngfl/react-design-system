@@ -1,6 +1,5 @@
 {
-  "name": "@mnngfl/react-design-system",
-  "private": true,
+  "name": "@mnngfl/learn-react-storybook-ds",
   "version": "0.1.0",
   "type": "module",
   "scripts": {
@@ -53,7 +52,7 @@
     "vite": "^5.2.0",
     "vite-plugin-svgr": "^4.2.0"
   },
-  "description": "Learn storybook design system",
+  "description": "Learn storybook design system with React",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
