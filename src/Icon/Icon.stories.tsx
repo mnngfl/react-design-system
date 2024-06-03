@@ -6,6 +6,11 @@ const meta: Meta<typeof Icon> = {
   tags: ["autodocs"],
   component: Icon,
   parameters: {
+    docs: {
+      description: {
+        component: "SVG 아이콘을 표시합니다.",
+      },
+    },
     layout: "centered",
   },
 };
