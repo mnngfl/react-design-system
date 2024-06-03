@@ -19,6 +19,7 @@ export default defineConfig({
       name: packageJson.name,
       fileName: () => `index.js`,
     },
+    sourcemap: true,
     rollupOptions: {
       external: ["react", "react-dom"],
       output: [
