@@ -4,7 +4,7 @@ import { ReactComponent as Mail } from "./mail.svg";
 import { ReactComponent as Plus } from "./plus.svg";
 import { ReactComponent as Send } from "./send.svg";
 
-export const icons = {
+export default {
   delete: Delete,
   loader: Loader,
   mail: Mail,
