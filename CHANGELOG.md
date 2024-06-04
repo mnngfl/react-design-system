@@ -1,3 +1,15 @@
+# v0.2.0 (Tue Jun 04 2024)
+
+#### 🚀 Enhancement
+
+- ready for build with rollup [#7](https://github.com/mnngfl/react-design-system/pull/7) ([@mnngfl](https://github.com/mnngfl))
+
+#### Authors: 1
+
+- Hyomin Kang ([@mnngfl](https://github.com/mnngfl))
+
+---
+
 # v0.1.3 (Mon Jun 03 2024)
 
 #### ⚠️ Pushed to `main`
