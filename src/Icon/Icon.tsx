@@ -1,5 +1,5 @@
 import { cx } from "class-variance-authority";
-import * as icons from "@/shared/assets/icons";
+import { icons } from "@/shared/assets/icons";
 import { twMerge } from "tailwind-merge";
 
 export type IconType = keyof typeof icons;
@@ -17,9 +17,9 @@ interface IconProps {
   className?: string;
 }
 
-export const Icon = ({ name, variant = "outlined", size = "md", className }: IconProps) => {
+const Icon = ({ name, variant = "outlined", size = "md", className }: IconProps) => {
   const iconClasses = twMerge(
-    cx("fill-none", {
+    cx("fill-none stroke-2", {
       "stroke-white": variant === "outlined",
       "stroke-slate-900": variant === "primary",
 
@@ -33,3 +33,5 @@ export const Icon = ({ name, variant = "outlined", size = "md", className }: Ico
   const SVGIcon = icons[name];
   return <SVGIcon className={iconClasses} />;
 };
+
+export default Icon;
