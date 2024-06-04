@@ -31,13 +31,7 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
-    "allowUnreachableCode": false,
-
-    /* Alias */
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "allowUnreachableCode": false
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

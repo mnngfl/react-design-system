@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { Icon, type IconType } from "@/Icon";
+import { Icon, type IconType } from "../Icon";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonStyles = cva("rounded-md justify-center items-center flex cursor-pointer", {
