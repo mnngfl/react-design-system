@@ -51,7 +51,7 @@ export default [
       }),
       svgr(),
     ],
-    external: ["react", "react-dom"],
+    external: ["react", "react-dom", "tailwindcss", "autoprefixer", "postcss"],
   },
   {
     input: "dist/esm/types/index.d.ts",
