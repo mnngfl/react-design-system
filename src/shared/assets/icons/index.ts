@@ -1,5 +1,13 @@
-export { default as delete } from "./delete.svg?react";
-export { default as loader } from "./loader.svg?react";
-export { default as mail } from "./mail.svg?react";
-export { default as plus } from "./plus.svg?react";
-export { default as send } from "./send.svg?react";
+import { ReactComponent as Delete } from "./delete.svg";
+import { ReactComponent as Loader } from "./loader.svg";
+import { ReactComponent as Mail } from "./mail.svg";
+import { ReactComponent as Plus } from "./plus.svg";
+import { ReactComponent as Send } from "./send.svg";
+
+export const icons = {
+  delete: Delete,
+  loader: Loader,
+  mail: Mail,
+  plus: Plus,
+  send: Send,
+};

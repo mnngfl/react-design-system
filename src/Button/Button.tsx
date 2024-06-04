@@ -90,7 +90,7 @@ interface ButtonProps extends VariantProps<typeof buttonStyles> {
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-export const Button = ({
+const Button = ({
   variant = "primary",
   pill = false,
   size = "md",
@@ -138,3 +138,5 @@ export const Button = ({
     </div>
   );
 };
+
+export default Button;
