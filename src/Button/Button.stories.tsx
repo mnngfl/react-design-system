@@ -133,7 +133,7 @@ export const OverrideClass: Story = {
         story: "클래스를 덮어 씁니다.",
       },
       source: {
-        code: `<Button label="Click me !" className="bg-violet-600 hover:bg-violet-700 active:bg-violet-800" />`,
+        code: `<Button label="Click me !" className="bg-brown-600 hover:bg-brown-700 active:bg-brown-800" />`,
       },
     },
   },
@@ -144,7 +144,7 @@ export const OverrideClass: Story = {
           args={{
             ...context.args,
             label: "Click me !",
-            className: "bg-violet-600 hover:bg-violet-700 active:bg-violet-800",
+            className: "bg-brown-600 hover:bg-brown-700 active:bg-brown-800",
           }}
         />
       </div>
