@@ -1,5 +1,4 @@
 import icons from "./shared/assets/icons";
-import "@/shared/styles.css";
 
 export { icons };
 
