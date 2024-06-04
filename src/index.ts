@@ -1,7 +1,7 @@
 import * as icons from "./shared/assets/icons";
-import styles from "@/shared/styles.css";
+import "@/shared/styles.css";
 
-export { icons, styles };
+export { icons };
 
 export * from "./Button";
 export * from "./Icon";
