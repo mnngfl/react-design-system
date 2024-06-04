@@ -1,3 +1,15 @@
+# v0.2.2 (Tue Jun 04 2024)
+
+#### 🐛 Bug Fix
+
+- test for tailwind custom config [#9](https://github.com/mnngfl/react-design-system/pull/9) ([@mnngfl](https://github.com/mnngfl))
+
+#### Authors: 1
+
+- Hyomin Kang ([@mnngfl](https://github.com/mnngfl))
+
+---
+
 # v0.2.1 (Tue Jun 04 2024)
 
 #### 🐛 Bug Fix
