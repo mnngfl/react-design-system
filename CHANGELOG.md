@@ -1,3 +1,16 @@
+# v0.2.7 (Wed Jun 05 2024)
+
+#### 🐛 Bug Fix
+
+- fix build error [#16](https://github.com/mnngfl/react-design-system/pull/16) ([@mnngfl](https://github.com/mnngfl))
+- add global css to index.ts [#15](https://github.com/mnngfl/react-design-system/pull/15) ([@mnngfl](https://github.com/mnngfl))
+
+#### Authors: 1
+
+- Hyomin Kang ([@mnngfl](https://github.com/mnngfl))
+
+---
+
 # v0.2.6 (Wed Jun 05 2024)
 
 #### 🐛 Bug Fix
