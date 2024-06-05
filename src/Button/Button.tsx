@@ -89,7 +89,7 @@ type DivProps = React.HTMLAttributes<HTMLDivElement> &
     /** 추가 클래스 */
     className?: string;
     /** 클릭 시 호출할 함수 */
-    onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
+    onClick?: (e?: React.MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
   };
 
 const Button: React.FC<ButtonProps & DivProps> = ({
