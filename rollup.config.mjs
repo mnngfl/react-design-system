@@ -34,7 +34,6 @@ export default [
       terser(),
       typescript({
         tsconfig: "./tsconfig.json",
-        exclude: ["**/*.stories.ts", "**/*.stories.tsx"],
       }),
       babel({
         babelHelpers: "bundled",

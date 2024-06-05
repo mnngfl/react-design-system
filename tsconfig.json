@@ -1,8 +1,6 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
     "allowJs": false,
@@ -18,8 +16,8 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "sourceMap": true,
-    // "outDir": "dist",
-    "declarationDir": "dist/types",
+    "outDir": "dist",
+    "declarationDir": "types",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

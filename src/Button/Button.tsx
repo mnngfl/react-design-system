@@ -67,30 +67,32 @@ const buttonTextStyles = cva(`font-medium font-['Inter']`, {
 type ButtonVariant = "primary" | "danger" | "outlined" | "subtle" | "ghost" | "link";
 type ButtonSize = "sm" | "md" | "lg";
 
-interface ButtonProps extends VariantProps<typeof buttonStyles> {
-  /** 버튼의 생김새 */
-  variant?: ButtonVariant;
-  /** 둥근 모양인지 여부 */
-  pill?: boolean;
-  /** 버튼의 크기 */
-  size?: ButtonSize;
-  /** 버튼 비활성화 여부 */
-  disabled?: boolean;
-  /** 버튼에 표시할 내용 */
-  label?: string;
-  /** 아이콘 종류 */
-  icon?: IconType;
-  /** 아이콘만 표시하는지 여부 */
-  onlyIcon?: boolean;
-  /** 로딩 중 여부 */
-  loading?: boolean;
-  /** 추가 클래스 */
-  className?: string;
-  /** 클릭 시 호출할 함수 */
-  onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
-}
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+type DivProps = React.HTMLAttributes<HTMLDivElement> &
+  VariantProps<typeof buttonStyles> & {
+    /** 버튼의 생김새 */
+    variant?: ButtonVariant;
+    /** 둥근 모양인지 여부 */
+    pill?: boolean;
+    /** 버튼의 크기 */
+    size?: ButtonSize;
+    /** 버튼 비활성화 여부 */
+    disabled?: boolean;
+    /** 버튼에 표시할 내용 */
+    label?: string;
+    /** 아이콘 종류 */
+    icon?: IconType;
+    /** 아이콘만 표시하는지 여부 */
+    onlyIcon?: boolean;
+    /** 로딩 중 여부 */
+    loading?: boolean;
+    /** 추가 클래스 */
+    className?: string;
+    /** 클릭 시 호출할 함수 */
+    onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
+  };
 
-const Button = ({
+const Button: React.FC<ButtonProps & DivProps> = ({
   variant = "primary",
   pill = false,
   size = "md",
@@ -102,7 +104,7 @@ const Button = ({
   className,
   onClick,
   ...props
-}: ButtonProps) => {
+}) => {
   const iconVariant = variant === "primary" || variant === "danger" ? "outlined" : "primary";
   const iconName = icon || (loading ? "loader" : null);
 
