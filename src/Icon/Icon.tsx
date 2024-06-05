@@ -6,7 +6,7 @@ export type IconType = keyof typeof icons;
 type IconVariant = "primary" | "outlined";
 type IconSize = "sm" | "md" | "lg";
 
-type IconProps = React.FC<React.SVGProps<SVGSVGElement>> & {
+interface IconProps {
   /** 아이콘 종류 */
   name: IconType;
   /** 아이콘 타입 */
@@ -15,9 +15,9 @@ type IconProps = React.FC<React.SVGProps<SVGSVGElement>> & {
   size?: IconSize;
   /** 적용할 클래스명 */
   className?: string;
-};
+}
 
-const Icon: React.FC<IconProps> = ({ name, variant = "outlined", size = "md", className }) => {
+const Icon = ({ name, variant = "outlined", size = "md", className }: IconProps) => {
   const iconClasses = twMerge(
     cx("fill-none stroke-2", {
       "stroke-white": variant === "outlined",
