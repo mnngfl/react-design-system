@@ -1,3 +1,15 @@
+# v0.2.6 (Wed Jun 05 2024)
+
+#### 🐛 Bug Fix
+
+- modify component type defs [#14](https://github.com/mnngfl/react-design-system/pull/14) ([@mnngfl](https://github.com/mnngfl))
+
+#### Authors: 1
+
+- Hyomin Kang ([@mnngfl](https://github.com/mnngfl))
+
+---
+
 # v0.2.5 (Tue Jun 04 2024)
 
 #### 🐛 Bug Fix
