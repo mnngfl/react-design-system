@@ -7,6 +7,7 @@ import typescript from "@rollup/plugin-typescript";
 import svgr from "@svgr/rollup";
 import url from "@rollup/plugin-url";
 import { dts } from "rollup-plugin-dts";
+import postcss from "rollup-plugin-postcss";
 
 import { createRequire } from "node:module";
 const requireFile = createRequire(import.meta.url);
@@ -49,6 +50,11 @@ export default [
         fileName: "[name][hash][extname]",
       }),
       svgr(),
+      postcss({
+        extensions: [".css"],
+        inject: true,
+        extract: false,
+      }),
     ],
     external: ["react", "react-dom", "tailwindcss", "autoprefixer", "postcss"],
   },
@@ -56,5 +62,6 @@ export default [
     input: "dist/esm/types/index.d.ts",
     output: [{ file: packageJson.types, format: "esm" }],
     plugins: [dts()],
+    external: [/\.css$/],
   },
 ];
