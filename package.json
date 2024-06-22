@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "rm -rf dist && rollup -c",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --max-warnings 0",
     "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
