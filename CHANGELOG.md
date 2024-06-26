@@ -1,3 +1,16 @@
+# v0.2.8 (Wed Jun 26 2024)
+
+#### 🐛 Bug Fix
+
+- #17-button-looks-like-width-100 to main [#22](https://github.com/mnngfl/react-design-system/pull/22) ([@mnngfl](https://github.com/mnngfl))
+- Ci to main [#19](https://github.com/mnngfl/react-design-system/pull/19) ([@mnngfl](https://github.com/mnngfl))
+
+#### Authors: 1
+
+- Hyomin Kang ([@mnngfl](https://github.com/mnngfl))
+
+---
+
 # v0.2.7 (Wed Jun 05 2024)
 
 #### 🐛 Bug Fix
