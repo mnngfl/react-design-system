@@ -19,7 +19,7 @@ interface IconProps {
 
 const Icon = ({ name, variant = 'outlined', size = 'md', className }: IconProps) => {
   const iconClasses = twMerge(
-    cx('fill-none stroke-2', {
+    cx('fill-none stroke-1.5', {
       'stroke-white': variant === 'outlined',
       'stroke-slate-900': variant === 'primary',
 
