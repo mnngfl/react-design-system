@@ -1,3 +1,16 @@
+# v0.3.0 (Wed Jun 26 2024)
+
+#### 🚀 Enhancement
+
+- Docs to main [#24](https://github.com/mnngfl/react-design-system/pull/24) ([@mnngfl](https://github.com/mnngfl))
+- #17 update docs to main [#23](https://github.com/mnngfl/react-design-system/pull/23) ([@mnngfl](https://github.com/mnngfl))
+
+#### Authors: 1
+
+- Hyomin Kang ([@mnngfl](https://github.com/mnngfl))
+
+---
+
 # v0.2.8 (Wed Jun 26 2024)
 
 #### 🐛 Bug Fix
