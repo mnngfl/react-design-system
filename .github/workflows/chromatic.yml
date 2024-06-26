@@ -2,6 +2,7 @@ name: 'Chromatic CI'
 on: push
 jobs:
   interaction-tests:
+    if: "!contains(github.event.head_commit.message, 'test skip') && !contains(github.event.head_commit.message, 'skip test')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,6 +21,7 @@ jobs:
             "npx http-server storybook-static --port 6006 --silent" \
             "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook --url http://127.0.0.1:6006"
   visual-tests:
+    if: "!contains(github.event.head_commit.message, 'test skip') && !contains(github.event.head_commit.message, 'skip test')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
