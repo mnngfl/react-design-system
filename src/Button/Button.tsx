@@ -2,41 +2,61 @@ import { twMerge } from 'tailwind-merge'
 import { Icon, type IconType } from '../Icon'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-const buttonStyles = cva('rounded-md justify-center items-center flex cursor-pointer', {
-  variants: {
-    variant: {
-      primary: 'bg-slate-900 hover:bg-slate-700 active:bg-slate-600',
-      danger: 'bg-red-600 hover:bg-red-700 active:bg-red-800',
-      outlined: 'border border-slate-200 bg-white hover:bg-slate-50 active:bg-slate-100',
-      subtle: 'bg-slate-100 hover:bg-slate-200 active:bg-slate-300',
-      ghost: 'bg-white/opacity-0 hover:bg-slate-100 active:bg-slate-200',
-      link: 'bg-white/opacity-0 hover:underline',
+const buttonStyles = cva(
+  'w-fit rounded-md justify-center items-center inline-flex cursor-pointer',
+  {
+    variants: {
+      variant: {
+        primary: 'bg-slate-900 hover:bg-slate-700 active:bg-slate-600',
+        danger: 'bg-red-600 hover:bg-red-700 active:bg-red-800',
+        outlined: 'border border-slate-200 bg-white hover:bg-slate-50 active:bg-slate-100',
+        subtle: 'bg-slate-100 hover:bg-slate-200 active:bg-slate-300',
+        ghost: 'bg-white/opacity-0 hover:bg-slate-100 active:bg-slate-200',
+        link: 'bg-white/opacity-0 hover:underline',
+      },
+      size: {
+        sm: 'h-8 px-3 gap-x-1',
+        md: 'h-10 px-4 gap-x-1.5',
+        lg: 'h-12 px-5 gap-x-2',
+      },
+      onlyIcon: {
+        true: {},
+      },
+      pill: {
+        true: 'rounded-full',
+      },
+      loading: {
+        true: 'cursor-wait',
+      },
+      disabled: {
+        true: 'opacity-50 hover:bg- active:bg- cursor-not-allowed',
+      },
     },
-    size: {
-      sm: 'min-w-16 h-8 p-2 gap-1',
-      md: 'min-w-24 h-10 p-2.5 gap-2',
-      lg: 'min-w-32 h-12 p-3 gap-2.5',
-    },
-    onlyIcon: {
-      true: 'min-w-8',
-    },
-    pill: {
-      true: 'rounded-full',
-    },
-    loading: {
-      true: 'cursor-wait',
-    },
-    disabled: {
-      true: 'opacity-50 hover:bg- active:bg- cursor-not-allowed',
+    compoundVariants: [
+      {
+        size: 'sm',
+        onlyIcon: true,
+        class: 'px-2',
+      },
+      {
+        size: 'md',
+        onlyIcon: true,
+        class: 'px-2.5',
+      },
+      {
+        size: 'lg',
+        onlyIcon: true,
+        class: 'px-3',
+      },
+    ],
+    defaultVariants: {
+      variant: 'primary',
+      size: 'md',
     },
   },
-  defaultVariants: {
-    variant: 'primary',
-    size: 'md',
-  },
-})
+)
 
-const buttonTextStyles = cva(`font-medium font-['Inter']`, {
+const buttonTextStyles = cva(`font-normal font-sans my-auto`, {
   variants: {
     variant: {
       primary: 'text-white',

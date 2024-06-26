@@ -15,7 +15,7 @@
     "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build-storybook-docs": "storybook build  --docs",
+    "build-storybook-docs": "storybook build --docs",
     "test-storybook": "test-storybook",
     "release": "rollup -c && auto shipit",
     "prepare": "husky"
